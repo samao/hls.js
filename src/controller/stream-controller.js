@@ -40,6 +40,7 @@ class StreamController extends TaskLoop {
       Event.MANIFEST_LOADING,
       Event.MANIFEST_PARSED,
       Event.LEVEL_LOADED,
+      Event.LEVEL_SWITCHING,
       Event.KEY_LOADED,
       Event.FRAG_LOADED,
       Event.FRAG_LOAD_EMERGENCY_ABORTED,
@@ -927,6 +928,10 @@ class StreamController extends TaskLoop {
 
     // trigger handler right now
     this.tick();
+  }
+  
+  onLevelSwitching() {
+    this.fragPlaying = null;
   }
 
   onKeyLoaded () {
